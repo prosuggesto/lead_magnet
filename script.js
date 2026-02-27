@@ -184,13 +184,10 @@ function handleSubmit(e) {
 
     if (!prenom || !nom || !email) return;
 
-    // Send data to webhook
-    fetch('https://n8n.srv862127.hstgr.cloud/webhook/stock_leads_magnet', {
+    // Send data to webhook via Vercel proxy
+    fetch('/api/leads', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'leads.magnet': 'leads.magnet.01'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prenom, nom, email })
     }).catch(err => console.warn('Webhook error:', err));
 
