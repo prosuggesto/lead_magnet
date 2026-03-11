@@ -19,7 +19,7 @@ export default async function handler(req, res) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'leads.magnet': 'leads.magnet.02'
+                'leads.magnet': 'leads.magnet.01'
             },
             body: JSON.stringify(req.body || {})
         });
