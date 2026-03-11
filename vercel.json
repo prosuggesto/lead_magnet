@@ -7,6 +7,10 @@
         {
             "source": "/api/leads-instagram",
             "destination": "/api/leads-instagram"
+        },
+        {
+            "source": "/instagram",
+            "destination": "/instagram.html"
         }
     ]
 }
