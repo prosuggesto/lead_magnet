@@ -330,32 +330,21 @@ function handleSubmit(e) {
 
     if (!prenom || !nom || !email) return;
 
-    const payload = JSON.stringify({ prenom, nom, email });
-
-    // Try Vercel proxy first, fallback to direct webhook
+    // Send data to webhook via Vercel proxy
     fetch('/api/leads-instagram', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: payload
-    }).then(res => {
-        if (!res.ok) throw new Error('Proxy failed');
-    }).catch(() => {
-        // Fallback: call webhook directly (local dev)
-        fetch('https://n8n.srv862127.hstgr.cloud/webhook/stock_leads_magnet', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'leads.magnet': 'leads.magnet.02'
-            },
-            body: payload
-        }).catch(err => console.warn('Webhook fallback error:', err));
-    });
+        body: JSON.stringify({ prenom, nom, email })
+    }).catch(err => console.warn('Webhook error:', err));
 
+    // Trigger the actual PDF download
     triggerDownload(PDF_FILE, 'Presentation-Instagram-SAA.pdf');
 
+    // Show success state
     document.getElementById('download-form').style.display = 'none';
     document.getElementById('modal-success').style.display = 'block';
 
+    // Auto close after 4s
     setTimeout(() => { closeModal(); }, 4000);
 }
 
