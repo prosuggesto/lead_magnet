@@ -1140,20 +1140,24 @@ body {
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
+    .nav {
+        padding: 10px 20px;
+    }
+
     .hero {
         padding: 100px 16px 60px;
     }
 
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .hero-stats {
-        gap: 20px;
+        gap: 24px;
     }
 
     .stat-number {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .section {
@@ -1170,10 +1174,6 @@ body {
 
     .conclusion-results {
         grid-template-columns: 1fr;
-    }
-
-    .nav {
-        padding: 12px 16px;
     }
 
     .timeline {
@@ -1200,14 +1200,42 @@ body {
 }
 
 @media (max-width: 480px) {
+    .nav {
+        padding: 10px 12px;
+        gap: 8px;
+    }
+
+    .logo-img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .logo-text {
+        font-size: 0.95rem;
+    }
+
+    .nav-cta {
+        padding: 8px 14px;
+        font-size: 0.72rem;
+        letter-spacing: 0;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
     .hero-stats {
-        flex-direction: column;
+        flex-direction: row;
         gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
     }
 
     .stat-divider {
-        width: 40px;
-        height: 1px;
+        display: none;
     }
 
     .hero-desc {
@@ -1221,6 +1249,30 @@ body {
     .btn {
         width: 100%;
         justify-content: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav {
+        padding: 8px 10px;
+        gap: 6px;
+    }
+
+    .logo-text {
+        font-size: 0.85rem;
+    }
+
+    .nav-cta {
+        padding: 7px 10px;
+        font-size: 0.68rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
     }
 }
 
